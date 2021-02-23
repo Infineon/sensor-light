@@ -1,11 +1,11 @@
-/**************************************************************************//***
+/***********************************************************************************************//**
  * \file mtb_light_sensor.h
  *
  * This file is the public interface of the light sensor.
  *
- *******************************************************************************
+ ***************************************************************************************************
  * \copyright
- * Copyright 2018-2020 Cypress Semiconductor Corporation
+ * Copyright 2018-2021 Cypress Semiconductor Corporation
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,15 +19,15 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *******************************************************************************/
+ **************************************************************************************************/
 
 #pragma once
 
 /**
-* \addtogroup group_board_libs Light Sensor
-* \{
-* Basic set of APIs for interacting with the light sensor.
-*/
+ * \addtogroup group_board_libs Light Sensor
+ * \{
+ * Basic set of APIs for interacting with the light sensor.
+ */
 
 #include "cy_result.h"
 #include "cyhal_adc.h"
@@ -42,7 +42,7 @@ extern "C"
  */
 typedef struct mtb_light_sensor
 {
-    cyhal_adc_channel_t channel;  //!< ADC channel obj
+    cyhal_adc_channel_t channel;  /**< ADC channel obj */
 } mtb_light_sensor_t;
 
 /**
@@ -56,7 +56,7 @@ typedef struct mtb_light_sensor
  * \note The ADC initialization function, cyhal_adc_init(), must be called
  * before this function is called.
  */
-cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t *light_sensor, cyhal_adc_t *adc_obj,
+cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t* light_sensor, cyhal_adc_t* adc_obj,
                                 cyhal_gpio_t pin);
 
 /**
@@ -64,13 +64,13 @@ cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t *light_sensor, cyhal_adc_t *a
  * @param[in] light_sensor  Light sensor instance.
  * @return A percentage - a value between 0 (no light) and 100 (maximum measurable light).
  */
-uint8_t mtb_light_sensor_light_level(mtb_light_sensor_t *light_sensor);
+uint8_t mtb_light_sensor_light_level(mtb_light_sensor_t* light_sensor);
 
 /**
  * Frees up any resources allocated by the light sensor as part of \ref mtb_light_sensor_init().
  * @param[in] light_sensor  Light sensor instance.
  */
-void mtb_light_sensor_free(mtb_light_sensor_t *light_sensor);
+void mtb_light_sensor_free(mtb_light_sensor_t* light_sensor);
 
 #if defined(__cplusplus)
 }

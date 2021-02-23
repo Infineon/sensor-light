@@ -9,6 +9,8 @@ https://www.vishay.com/docs/81579/temt6000.pdf
 * APIs for reading relative light level
 
 ### What Changed?
+#### v1.0.1
+* Fixed documentation issues
 #### v1.0.0
 * Initial release
 
@@ -17,10 +19,12 @@ This version of the light sensor library was validated for compatibility with th
 
 | Software and Tools                        | Version |
 | :---                                      | :----:  |
-| ModusToolbox Software Environment         | 2.0     |
-| GCC Compiler                              | 7.4     |
-| IAR Compiler                              | 8.32    |
+| ModusToolbox Software Environment         | 2.1     |
+| GCC Compiler                              | 9.2     |
+| IAR Compiler                              | 8.4     |
 | ARM Compiler 6                            | 6.11    |
+
+Minimum required ModusToolbox Software Environment: v2.0
 
 ### More information
 
@@ -33,4 +37,4 @@ This version of the light sensor library was validated for compatibility with th
 * [PSoC 6 Resources - KBA223067](https://community.cypress.com/docs/DOC-14644)
 
 ---
-© Cypress Semiconductor Corporation, 2019-2020.
+© Cypress Semiconductor Corporation, 2019-2021.

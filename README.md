@@ -21,7 +21,7 @@ This library is generic and can be used with any ADC based light sensor.
 #define LIGHT_SENSOR_PIN (CYBSP_A0)
 
 cyhal_adc_t adc;
-mtb_light_sensor_t sensor;
+mtb_light_sensor_t light_sensor;
 
 int main(void)
 {
@@ -36,7 +36,7 @@ int main(void)
     rslt = mtb_light_sensor_init(&light_sensor, &adc, LIGHT_SENSOR_PIN);
     CY_ASSERT(rslt == CY_RSLT_SUCCESS);
 
-    uint8_t light = mtb_light_sensor_light_level(&light_sensor_obj));
+    uint8_t light = mtb_light_sensor_light_level(&light_sensor);
 
     for(;;) { }
 }
@@ -53,4 +53,4 @@ int main(void)
 * [PSoC 6 Resources - KBA223067](https://community.cypress.com/docs/DOC-14644)
 
 ---
-© Cypress Semiconductor Corporation, 2019-2020.
+© Cypress Semiconductor Corporation, 2019-2021.

@@ -1,11 +1,11 @@
-/**************************************************************************//***
+/***********************************************************************************************//**
  * \file mtb_light_sensor.c
  *
  * This file is the implementation for the light sensor.
  *
- *******************************************************************************
+ ***************************************************************************************************
  * \copyright
- * Copyright 2018-2020 Cypress Semiconductor Corporation
+ * Copyright 2018-2021 Cypress Semiconductor Corporation
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *******************************************************************************/
+ **************************************************************************************************/
 
 #include "mtb_light_sensor.h"
 
@@ -29,15 +29,17 @@ extern "C"
 #endif
 
 
-/*******************************************************************************
- * Initializes an ADC channel to use with the light sensor. If no ADC
- * channel is available (i.e. reserved by the hardware resource
- * manager), then this initialization fails.
- *
- * NOTE: The ADC initialization function, cyhal_adc_init(), must be called
- * before this function is called.
-*******************************************************************************/
-cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t *light_sensor, cyhal_adc_t *adc_obj,
+//--------------------------------------------------------------------------------------------------
+// mtb_light_sensor_init
+//
+// Initializes an ADC channel to use with the light sensor. If no ADC
+// channel is available (i.e. reserved by the hardware resource
+// manager), then this initialization fails.
+//
+// NOTE: The ADC initialization function, cyhal_adc_init(), must be called
+// before this function is called.
+//--------------------------------------------------------------------------------------------------
+cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t* light_sensor, cyhal_adc_t* adc_obj,
                                 cyhal_gpio_t pin)
 {
     cy_rslt_t result;
@@ -48,10 +50,12 @@ cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t *light_sensor, cyhal_adc_t *a
 }
 
 
-/*******************************************************************************
- * Returns the current light level as a percentage.
-*******************************************************************************/
-uint8_t mtb_light_sensor_light_level(mtb_light_sensor_t *light_sensor)
+//--------------------------------------------------------------------------------------------------
+// mtb_light_sensor_light_level
+//
+// Returns the current light level as a percentage.
+//--------------------------------------------------------------------------------------------------
+uint8_t mtb_light_sensor_light_level(mtb_light_sensor_t* light_sensor)
 {
     uint16_t adc_reading;
     uint32_t percentage;
@@ -67,13 +71,16 @@ uint8_t mtb_light_sensor_light_level(mtb_light_sensor_t *light_sensor)
 }
 
 
-/*******************************************************************************
- * Free the resources used with the light sensor.
-*******************************************************************************/
-void mtb_light_sensor_free(mtb_light_sensor_t *light_sensor)
+//--------------------------------------------------------------------------------------------------
+// mtb_light_sensor_free
+//
+// Free the resources used with the light sensor.
+//--------------------------------------------------------------------------------------------------
+void mtb_light_sensor_free(mtb_light_sensor_t* light_sensor)
 {
     cyhal_adc_channel_free(&light_sensor->channel);
 }
+
 
 #if defined(__cplusplus)
 }
