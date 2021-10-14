@@ -5,7 +5,9 @@
  *
  ***************************************************************************************************
  * \copyright
- * Copyright 2018-2021 Cypress Semiconductor Corporation
+ * Copyright 2018-2021 Cypress Semiconductor Corporation (an Infineon company) or
+ * an affiliate of Cypress Semiconductor Corporation
+ *
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -44,8 +46,14 @@ cy_rslt_t mtb_light_sensor_init(mtb_light_sensor_t* light_sensor, cyhal_adc_t* a
 {
     cy_rslt_t result;
 
+    #if (CYHAL_API_VERSION >= 2)
+    static const cyhal_adc_channel_config_t DEFAULT_CHAN_CONFIG =
+        { .enable_averaging = false, .min_acquisition_ns = 10u, .enabled = true };
+    result = cyhal_adc_channel_init_diff(&light_sensor->channel, adc_obj, pin, CYHAL_ADC_VNEG,
+                                         &DEFAULT_CHAN_CONFIG);
+    #else
     result = cyhal_adc_channel_init(&light_sensor->channel, adc_obj, pin);
-
+    #endif
     return result;
 }
 

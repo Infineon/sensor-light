@@ -102,14 +102,14 @@ $(document).ready(function(){initNavTree('index.html','');});
 <dl class="section note"><dt>Note</dt><dd>This example is targeted for Arduino-based boards. Define LIGHT_SENSOR_PIN as appropriate for your hardware.</dd></dl>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;cyhal.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;cybsp.h&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;mtb_light_sensor.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define LIGHT_SENSOR_PIN (CYBSP_A0)</span></div><div class="line"></div><div class="line">cyhal_adc_t adc;</div><div class="line"><a class="code" href="group__group__board__libs.html#structmtb__light__sensor__t">mtb_light_sensor_t</a> light_sensor;</div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">    cy_rslt_t rslt;</div><div class="line"></div><div class="line">    rslt = cybsp_init();</div><div class="line">    CY_ASSERT(rslt == CY_RSLT_SUCCESS);</div><div class="line"></div><div class="line">    rslt = cyhal_adc_init(&amp;adc, LIGHT_SENSOR_PIN, NULL);</div><div class="line">    CY_ASSERT(rslt == CY_RSLT_SUCCESS);</div><div class="line"></div><div class="line">    rslt = <a class="code" href="group__group__board__libs.html#gae86fdb18c398b5111501915a83fca1ed">mtb_light_sensor_init</a>(&amp;light_sensor, &amp;adc, LIGHT_SENSOR_PIN);</div><div class="line">    CY_ASSERT(rslt == CY_RSLT_SUCCESS);</div><div class="line"></div><div class="line">    uint8_t light = <a class="code" href="group__group__board__libs.html#gae8d7901ac044169d797b646887c661b1">mtb_light_sensor_light_level</a>(&amp;light_sensor);</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span>(;;) { }</div><div class="line">}</div></div><!-- fragment --><h3>More information</h3>
 <ul>
-<li><a href="https://cypresssemiconductorco.github.io/light-sensor/html/index.html">API Reference Guide</a></li>
+<li><a href="https://infineon.github.io/light-sensor/html/index.html">API Reference Guide</a></li>
 <li><a href="http://www.cypress.com">Cypress Semiconductor, an Infineon Technologies Company</a></li>
-<li><a href="https://github.com/cypresssemiconductorco">Cypress Semiconductor GitHub</a></li>
-<li><a href="https://www.cypress.com/products/modustoolbox-software-environment">ModusToolbox</a></li>
-<li><a href="https://github.com/cypresssemiconductorco/Code-Examples-for-ModusToolbox-Software">PSoC 6 Code Examples using ModusToolbox IDE</a></li>
-<li><a href="https://github.com/cypresssemiconductorco/psoc6-middleware">PSoC 6 Middleware</a></li>
-<li><a href="https://community.cypress.com/docs/DOC-14644">PSoC 6 Resources - KBA223067</a> <hr/>
- © Cypress Semiconductor Corporation, 2019-2021. </li>
+<li><a href="https://github.com/infineon">Infineon GitHub</a></li>
+<li><a href="https://www.cypress.com/products/modustoolbox-software-environment">ModusToolbox™</a></li>
+<li><a href="https://github.com/infineon/Code-Examples-for-ModusToolbox-Software">PSoC™ 6 Code Examples using ModusToolbox™ IDE</a></li>
+<li><a href="https://github.com/Infineon/modustoolbox-software">ModusToolbox™ Software</a></li>
+<li><a href="https://community.cypress.com/docs/DOC-14644">PSoC™ 6 Resources - KBA223067</a> <hr/>
+ © Cypress Semiconductor Corporation (an Infineon company) or an affiliate of Cypress Semiconductor Corporation, 2019-2021. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
